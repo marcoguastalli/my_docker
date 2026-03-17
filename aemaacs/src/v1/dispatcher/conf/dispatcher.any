@@ -1,0 +1,6 @@
+/cache {
+  /docroot "/var/www/html"
+  /rules {
+    /0000 { /glob "*" /type "allow" }
+  }
+}

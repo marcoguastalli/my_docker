@@ -1,0 +1,53 @@
+<form method="post" id="createBookmarksForm" name="createBookmarksForm" enctype="application/x-www-form-urlencoded" action="http://marco27.net:3000/app/bookmarks/create" target="_blank">
+  <h2>Create a new Bookmarks</h2>
+  <div class="field">
+    <p class="help">Title of the Bookmarks</p>
+    <label class="label" for="title">
+      <input class="input" type="text" id="title" name="title" value="" placeholder="title">
+    </label>
+  </div>
+  <div class="field">
+    <p class="help">URI of the Bookmarks</p>
+    <label class="label" for="uri">
+      <input class="input" type="text" id="uri" name="uri" value="" placeholder="uri">
+    </label>
+  </div>
+  <div class="field">
+    <p class="help">Folder of the Bookmarks</p>
+    <label class="label" for="folder">
+      <input class="input" type="text" id="folder" name="folder" value="" placeholder="folder">
+    </label>
+  </div>
+  <div class="field">
+    <p class="help">Icon of the Bookmarks</p>
+    <label class="label" for="icon">
+      <input class="input" type="text" id="icon" name="icon" value="" placeholder="icon">
+    </label>
+  </div>
+  <div class="field">
+    <p class="help">Status of the Bookmarks</p>
+    <label class="label" for="status">
+      <input class="input" type="text" id="status" name="status" value="200" placeholder="status">
+    </label>
+  </div>
+  <div class="field">
+    <p class="help">Create Timestamp of the Bookmarks</p>
+    <label class="label" for="create_time">
+      <input class="input" type="text" id="create_time" name="create_time" value="" placeholder="2021-11-13T18:43:05.784Z">
+    </label>
+  </div>
+  <div class="field">
+    <p class="help">Update Timestamp of the Bookmarks</p>
+    <label class="label" for="update_time">
+      <input class="input" type="text" id="update_time" name="update_time" value="" placeholder="2021-11-13T18:43:05.784Z">
+    </label>
+  </div>
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-link" type="submit" id="buttonSubmit" name="buttonSubmit">Submit</button>
+    </div>
+    <div class="control">
+      <button class="button is-link is-light" type="reset" id="buttonReset" name="buttonReset">Cancel</button>
+    </div>
+  </div>
+</form>

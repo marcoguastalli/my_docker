@@ -1,0 +1,10 @@
+
+services:
+
+  web:
+    image: nginx:1.19.8
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/marco27.net.conf:/etc/nginx/conf.d/marco27.net.conf
+      - ./www:/var/www/marco27.net

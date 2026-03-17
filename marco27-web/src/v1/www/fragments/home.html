@@ -1,0 +1,73 @@
+<div class="columns">
+  <div class="column has-text-centered">
+    <h1 class="title">Home</h1>
+  </div>
+</div>
+<div class="columns">
+  <div class="column">
+    <a class="button" href="http://marco27.net:8000" target="_blank">MariaDB</a>
+    <a class="button gris" href="http://marco27.net:8000" target="_blank">@localhost</a>
+  </div>
+  <div class="column">
+    <a class="button" href="http://marco27.net:8081" target="_blank">MongoDB</a>
+    <a class="button gris" href="http://marco27.net:8081" target="_blank">@localhost</a>
+  </div>
+  <div class="column">
+    <a class="button" href="http://marco27.net:5050" target="_blank">PostgreSQL</a>
+    <a class="button gris" href="http://marco27.net:5050" target="_blank">@localhost</a>
+  </div>
+  <div class="column">
+    <a class="button" href="http://marco27.net:8983/solr/#/" target="_blank">Solr</a>
+    <a class="button gris" href="http://marco27.net:8983/solr/#/" target="_blank">@localhost</a>
+  </div>
+  <div class="column">
+    <a class="button" href="http://marco27.net/info.php" target="_blank">PHP</a>
+    <a class="button gris" href="http://marco27.net/info.php" target="_blank">@localhost</a>
+  </div>
+  <div class="column">
+    <a class="button" href="http://marco27.net:8080/marco27-web/" target="_blank">Tomcat</a>
+    <a class="button gris" href="http://marco27.net:8080/marco27-web/" target="_blank">@localhost</a>
+  </div>
+  <div class="column">
+    <a class="button" href="http://marco27.net:8090/releasenotes" target="_blank">Node Express</a>
+    <a class="button gris" href="http://marco27.net:8090/releasenotes" target="_blank">@localhost</a>
+  </div>
+  <div class="column">
+    <a class="button" href="http://marco27.net:15672" target="_blank">RabbitMQ</a>
+    <a class="button gris" href="http://marco27.net:15672/" target="_blank">@localhost</a>
+  </div>
+  <div class="column">
+    <a class="button" href="#" id="httpBinButton">httpbin</a>
+  </div>
+</div>
+<div class="columns">
+  <div class="column">
+    <textarea class="textarea is-warning is-small" rows="2">Solr &#13;&#10;curl 'http://marco27.net:8983/solr/admin/collections?action=CREATE&name=printFileSystem&numShards=1&collection.configName=_default'</textarea>
+  </div>
+</div>
+<div class="columns">
+  <div class="column">
+    <a class="button" href="http://marco27.net:8080/marco27-web/bin/solr/indexPOC" target="_blank">Solr index POC</a>
+  </div>
+  <div class="column">
+    <a class="button" href="http://marco27.net:8983/solr/printFileSystem/select?q=id%3APOC" target="_blank">Solr Query POC</a>
+  </div>
+  <div class="column">
+    <a class="button" href="http://marco27.net:8080/marco27-web/bin/solr/deletePOC" target="_blank">Solr delete POC</a>
+  </div>
+  <div class="column">
+    <a class="button" href="http://marco27.net:8983/solr/printFileSystem/select?q=*%3A*" target="_blank">Solr Query *</a>
+  </div>
+</div>
+<div class="columns">
+  <div class="column">
+    <?php include "./fragments/bookmarks-crypto.html" ?>
+  </div>
+  <div class="column">
+    <?php include "./fragments/bookmarks-crypto-com.html" ?>
+    <?php include "./fragments/bookmarks-oviedo.html" ?>
+  </div>
+  <div class="column">
+    <?php include "./fragments/bookmarks-dev.html" ?>
+  </div>
+</div>

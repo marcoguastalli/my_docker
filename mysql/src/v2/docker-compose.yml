@@ -1,0 +1,58 @@
+
+services:
+
+  web:
+    image: nginx:stable-alpine3.17
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/marco27.net.conf:/etc/nginx/conf.d/marco27.net.conf
+      - ./www:/var/www/marco27.net
+    depends_on:
+      - php
+      - mysql
+
+  php:
+    image: php:7.4-fpm
+    volumes:
+      - ./www:/var/www/marco27.net
+      - ./php.ini:/usr/local/etc/php/php.ini
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0.36-debian
+    restart: always
+    command: "mysqld --init-file /data/application/init.sql"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./sql/init.sql:/data/application/init.sql
+    environment:
+      MYSQL_DATABASE: db
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_ALLOW_EMPTY_PASSWORD: false
+      MYSQL_USER: toor
+      MYSQL_PASSWORD: root123
+    networks:
+      - ddbb-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.2.1
+    container_name: phpmyadmin
+    ports:
+      - 8000:80
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+      MYSQL_ROOT_PASSWORD: root123
+    networks:
+      - ddbb-network
+    depends_on:
+      - mysql
+
+volumes:
+  mysql-data:
+
+networks:
+  ddbb-network:

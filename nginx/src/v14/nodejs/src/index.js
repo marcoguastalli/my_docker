@@ -1,0 +1,1 @@
+console.log("I am a log served by node.js inside linux alpine using Docker");

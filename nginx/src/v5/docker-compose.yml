@@ -1,0 +1,65 @@
+
+services:
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy:alpine
+    container_name: nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - certs:/etc/nginx/certs:ro
+      - confd:/etc/nginx/conf.d
+      - vhostd:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+    labels:
+      - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion:2.1
+    container_name: nginx-proxy-compayn
+    restart: always
+    environment:
+      - NGINX_PROXY_CONTAINER="nginx-proxy"
+      - DEFAULT_EMAIL="mail@mail.com"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - certs:/etc/nginx/certs:rw
+      - confd:/etc/nginx/conf.d
+      - vhostd:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+
+  marco27net:
+    image: nginx:stable-alpine
+    container_name: marco27net
+    restart: always
+    environment:
+      - VIRTUAL_HOST=marco27.net
+      - VIRTUAL_PORT=80
+      - LETSENCRYPT_HOST=marco27.net
+      - LETSENCRYPT_EMAIL=marco27@marco27.net
+
+    volumes:
+      - ./nginx/marco27/default.conf:/etc/nginx/conf.d/default.conf
+      - ./html/marco27:/usr/share/nginx/html:ro
+
+  m27js_net:
+    image: nginx:stable-alpine
+    container_name: m27js_net
+    restart: always
+    environment:
+      - VIRTUAL_HOST=m27js.net
+      - VIRTUAL_PORT=80
+      - LETSENCRYPT_HOST=m27js.net
+      - LETSENCRYPT_EMAIL=m27js@m27js.net
+    volumes:
+      - ./nginx/m27js/default.conf:/etc/nginx/conf.d/default.conf
+      - ./html/m27js:/usr/share/nginx/html:ro
+
+volumes:
+  certs:
+  confd:
+  vhostd:
+  html:

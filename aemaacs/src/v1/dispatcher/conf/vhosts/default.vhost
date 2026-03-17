@@ -1,0 +1,11 @@
+<VirtualHost *:80>
+    ServerName localhost
+    DocumentRoot "/var/www/html"
+
+    <Directory />
+        Require all granted
+    </Directory>
+
+    ProxyPass "/content" "http://publish:4503/content"
+    ProxyPassReverse "/content" "http://publish:4503/content"
+</VirtualHost>

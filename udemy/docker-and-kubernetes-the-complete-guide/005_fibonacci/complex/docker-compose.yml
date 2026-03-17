@@ -1,0 +1,113 @@
+services:
+  postgres:
+    container_name: postgres
+    image: 'postgres:latest'
+    ports:
+      - 5432:5432
+    restart: unless-stopped
+    volumes:
+      - ./postgres-data:/data/postgres
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres_password}
+
+  redis:
+    container_name: redis
+    image: 'redis:latest'
+    command: redis-server --requirepass redis6379
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_USER=default
+      - REDIS_PASSWORD=redis6379
+    volumes:
+      - ./redis/redis-data:/var/lib/redis
+      - ./redis/redis.conf:/etc/redis/redis.conf
+    ports:
+      - '6379:6379'
+
+  nginx:
+    restart: always
+    depends_on:
+      - api
+      - client
+      - worker
+      - pgadmin
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.dev
+    ports:
+      - '80:80'
+
+  api:
+    container_name: api
+    build:
+      context: ./server
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_USER=default
+      - REDIS_PASSWORD=redis6379
+      - PGUSER=postgres
+      - PGHOST=postgres
+      - PGDATABASE=postgres
+      - PGPASSWORD=postgres_password
+      - PGPORT=5432
+    ports:
+      - '5000:5000'
+
+  client:
+    stdin_open: true
+    container_name: client
+    environment:
+      - WDS_SOCKET_PORT=0
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+    ports:
+      - '3000:3000'
+
+  worker:
+    container_name: worker
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./worker
+    depends_on:
+      - redis
+    volumes:
+      - /app/node_modules
+      - ./worker:/app
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_USER=default
+      - REDIS_PASSWORD=redis6379
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    depends_on:
+      - postgres
+    restart: unless-stopped
+    volumes:
+      - ./pgadmin-data:/root/.pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-postgres_password}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "${PGADMIN_PORT:-4080}:80"
+
+volumes:
+  postgres-data:
+  pgadmin-data:

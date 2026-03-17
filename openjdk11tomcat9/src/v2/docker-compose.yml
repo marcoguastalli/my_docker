@@ -1,0 +1,24 @@
+
+services:
+
+  tomcat:
+    image: tomcat:9.0.41-jdk11-openjdk-slim
+    container_name: tomcat-9
+    ports:
+      - 8980:8080
+      - 8905:8005
+      - 8943:8443
+    environment:
+      - JPDA_ADDRESS=8989
+      - JPDA_TRANSPORT=dt_socket
+    volumes:
+      - ./tomcat/server.xml:/usr/local/tomcat/conf/server.xml:rw
+      - ./tomcat/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml:rw
+      - ./war/examples:/usr/local/tomcat/webapps/examples
+      - ./war/host-manager:/usr/local/tomcat/webapps/host-manager
+      - ./war/manager:/usr/local/tomcat/webapps/manager
+      - ./war/ROOT:/usr/local/tomcat/webapps/ROOT
+    command:
+      - catalina.sh
+      - jpda
+      - run

@@ -1,0 +1,15 @@
+FROM alpine:3.12.3
+
+ENV LIGHTTPD_VERSION=1.4.55-r1
+
+RUN apk add --update --no-cache \
+	lighttpd=${LIGHTTPD_VERSION} \
+	lighttpd-mod_auth \
+  && rm -rf /var/cache/apk/*
+
+COPY ./lighttpd/etc/lighttpd/* /etc/lighttpd/
+COPY ./lighttpd/start.sh /usr/local/bin/
+
+EXPOSE 80
+
+CMD ["start.sh"]

@@ -1,0 +1,24 @@
+
+services:
+
+  nginx:
+    image: nginx:alpine3.18-slim
+    container_name: app-bookmarks-nginx
+    ports:
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./nginx/certs:/etc/ssl:ro
+      - ./html:/usr/share/nginx/html:ro
+
+  nodejs:
+    container_name: app-bookmarks-nodejs
+    command: sh -c "npm install && npm run start"
+    volumes:
+      - ./nodejs:/var/nodejs
+    environment:
+      - NODE_ENV=development
+    working_dir: /var/nodejs
+    build:
+      context: ./nodejs
+      dockerfile: Dockerfile

@@ -1,0 +1,14 @@
+{
+  "name": "nodejs-alpine",
+  "version": "1.0.0",
+  "author": "@marcoguastalli",
+  "description": "node.js alpine",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "express": "*"
+  }
+}

@@ -1,0 +1,17 @@
+
+services:
+
+  tomee:
+    image: tomee:11-jre-8.0.5-plume
+    container_name: tomee-8
+    ports:
+      - 8080:8080
+      - 8443:8443
+      - 8100:8100
+    environment:
+      - PDA_TRANSPORT=dt_socket
+      - JPDA_ADDRESS=8100
+      - JPDA_SUSPEND=n
+    volumes:
+      - ./tomcat/server.xml:/usr/local/tomcat/conf/server.xml:rw
+      - ./tomcat/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml:rw

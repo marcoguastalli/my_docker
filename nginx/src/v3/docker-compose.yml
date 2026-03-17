@@ -1,0 +1,19 @@
+
+services:
+
+  nginx:
+    image: nginx:stable-alpine
+    restart: always
+    environment:
+      - VIRTUAL_HOST=marco27.net,m27js.net
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./html:/usr/share/nginx/html:ro
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy:alpine
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro

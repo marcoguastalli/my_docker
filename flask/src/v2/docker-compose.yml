@@ -1,0 +1,7 @@
+
+services:
+
+  gunicorn:
+    image: tiangolo/meinheld-gunicorn:python3.8
+    ports:
+      - 82:80

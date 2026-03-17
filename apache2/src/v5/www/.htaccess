@@ -1,0 +1,14 @@
+# https://httpd.apache.org/docs/2.4/rewrite/flags.html
+<IfModule mod_rewrite.c>
+    SetEnv HTTP_MOD_REWRITE On
+    RewriteEngine on
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # The rest of your rewrite rules here
+    RewriteRule ^enter$ login.html [PT]
+    RewriteRule ^welcome\/$ login.html [PT]
+
+    RewriteRule ^trecentouno\/(.+)$ http://localhost:8005/login.html [L,R=301]
+    RewriteRule ^trecentodue\/(.+)$ http://localhost:8005/login.html [L,R=302]
+    RewriteRule ^trecentotre$ http://localhost:8005/login.html [L,R=303]
+</IfModule>

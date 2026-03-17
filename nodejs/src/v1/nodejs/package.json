@@ -1,0 +1,12 @@
+{
+  "name": "nodejs-v1",
+  "version": "1.0.0",
+  "author": "@marcoguastalli",
+  "description": "Node.js on Docker",
+  "scripts": {
+    "start": "node express.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

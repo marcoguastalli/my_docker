@@ -2,7 +2,7 @@
 nodejs with webpack server
 
 ### build
-cd ~/my_docker/nodejs/src/v2
+cd ./nodejs/src/v2
 docker build -t nodejs:v2 .
 
 ### run

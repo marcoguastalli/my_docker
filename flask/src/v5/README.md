@@ -4,7 +4,7 @@
 https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/
 
 ### build
-cd ~/my_docker/flask/src/v5
+cd ./flask/src/v5
 docker-compose up -d --build
 
 ### run

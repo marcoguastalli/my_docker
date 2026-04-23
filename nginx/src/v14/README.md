@@ -2,7 +2,7 @@
 nginx http alpine with node.js console log message running with pm2
 
 ### build
-cd ~/my_docker/nginx/src/v14
+cd ./nginx/src/v14
 docker build --no-cache -t nginx:v14 .
 
 ### run

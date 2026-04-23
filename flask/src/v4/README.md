@@ -2,7 +2,7 @@
 Run a container with marco27/ubudev27:v1, Flask and uWSGI
 
 ### build
-cd ~/my_docker/flask/src/v4
+cd ./flask/src/v4
 docker build -t flask:v4 .
 
 ### run

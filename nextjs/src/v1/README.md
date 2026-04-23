@@ -2,15 +2,15 @@
 nextjs app on Docker
 
 ### First time next-app next.js
-cd ~/my_docker/nextjs/src/v1
+cd ./nextjs/src/v1
 yarn create next-app
 yarn create next-app --example with-docker nextjs-alpine
 ### build next-app
-cd ~/my_docker/nextjs/src/v1/nextjs-alpine
+cd ./nextjs/src/v1/nextjs-alpine
 npm run dev
 
 ### build
-cd ~/my_docker/nextjs/src/v1/nextjs-alpine
+cd ./nextjs/src/v1/nextjs-alpine
 docker build --no-cache -t nextjs:v1 .
 
 ### run

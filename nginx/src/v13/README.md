@@ -2,7 +2,7 @@
 nginx http alpine with node.js console log message
 
 ### build
-cd ~/my_docker/nginx/src/v13
+cd ./nginx/src/v13
 docker build --no-cache -t nginx:v13 .
 
 ### run

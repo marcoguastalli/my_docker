@@ -1,5 +1,5 @@
 ### build
-cd ~/my_docker/openjdk11tomcat10/src/v1
+cd ./openjdk11tomcat10/src/v1
 docker-compose up -d
 
 ### run

@@ -2,7 +2,7 @@
 Node.js with node:http in alpine
 
 ### build
-cd ~/my_docker/nodejs/src/v4
+cd ./nodejs/src/v4
 docker build -t nodejs:v4 .
 
 ### run

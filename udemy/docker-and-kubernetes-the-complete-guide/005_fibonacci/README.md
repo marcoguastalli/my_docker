@@ -1,7 +1,7 @@
 # Fibonacci
 
 # 0001
-cd ~/my_docker/udemy/docker-and-kubernetes-the-complete-guide/005_fibonacci/complex
+cd ./udemy/docker-and-kubernetes-the-complete-guide/005_fibonacci/complex
 docker-compose up --build
 docker-compose up
 docker-compose stop

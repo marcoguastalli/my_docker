@@ -2,7 +2,7 @@
 nginx under debian 10 buster with http2
 
 ### build
-cd ~/my_docker/nginx/src/v9
+cd ./nginx/src/v9
 docker build --no-cache -t nginx:v9 .
 
 ### run

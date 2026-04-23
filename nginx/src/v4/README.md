@@ -5,7 +5,7 @@ nginx with nginx proxy and 2 nginx
 https://hub.docker.com/r/jwilder/nginx-proxy
 
 ### build
-cd ~/my_docker/nginx/src/v4
+cd ./nginx/src/v4
 docker-compose up -d
 
 ### run

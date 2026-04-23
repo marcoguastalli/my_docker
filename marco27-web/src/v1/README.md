@@ -2,7 +2,7 @@
 marco27 web with nginx, node, mongo, tomcat, rabbitMQ, flask and more stuff
 
 ### build
-cd ~/my_docker/marco27-web/src/v1
+cd ./marco27-web/src/v1
 docker-compose up -d
 ##### rebuild the marco27-web image with a Dockerfile
 docker-compose up -d --build
@@ -83,7 +83,7 @@ admin:qwerty
 ##### www
 http://localhost
 http://marco27.net
-cd ~/my_docker/marco27-web/src/v1/www
+cd ./marco27-web/src/v1/www
 npm install
 npm run build
 npm run dev

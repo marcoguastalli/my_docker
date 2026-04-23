@@ -5,7 +5,7 @@ nginx http alpine
 https://www.docker.com/blog/how-to-use-the-official-nginx-docker-image/
 
 ### build
-cd ~/my_docker/nginx/src/v11
+cd ./nginx/src/v11
 docker build --no-cache -t nginx:v11 .
 
 ### run

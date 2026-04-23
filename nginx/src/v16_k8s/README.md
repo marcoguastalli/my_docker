@@ -2,7 +2,7 @@
 nginx http alpine with node.js console log message running with pm2
 
 ### push
-cd ~/my_docker/nginx/src/v16
+cd ./nginx/src/v16
 docker build --no-cache -t marco27/simple-nginx:v1 .
 docker login
 docker push marco27/simple-nginx:v1
@@ -11,7 +11,7 @@ docker push marco27/simple-nginx:v1
 docker pull marco27/simple-nginx:v2
 
 ### deploy
-cd ~/my_docker/nginx/src/v16_k8s
+cd ./nginx/src/v16_k8s
 kubectl apply -f simple-nginx-deployment.yaml
 kubectl apply -f simple-nginx-cluster-ip-service.yaml
 kubectl apply -f simple-nginx-ingress.yaml
@@ -30,7 +30,7 @@ kubectl get all --namespace ingress-nginx
 minikube service list --namespace ingress-nginx
 
 ### folder
-cd ~/my_docker/nginx/src
+cd ./nginx/src
 kubectl apply -f nginx_v16_k8s/ --namespace ingress-nginx
 kubectl delete -f nginx_v16_k8s/ --namespace ingress-nginx
 

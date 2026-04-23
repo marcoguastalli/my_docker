@@ -2,7 +2,7 @@
 nginx under debian 10 buster http only OOTB
 
 ### build
-cd ~/my_docker/nginx/src/v7
+cd ./nginx/src/v7
 docker build --no-cache -t nginx-buster:v2 .
 
 ### run

@@ -9,7 +9,7 @@ ssh-keygen -q -N "" -f .ssh/id_rsa_docker
 then copy '~/.ssh/id_rsa_docker_pub 'it in ~/my_docker/nginx/src/v6/ssh
 
 ### build
-cd ~/my_docker/nginx/src/v6
+cd ./nginx/src/v6
 docker build --no-cache -t nginx-buster:v1 .
 
 ### run

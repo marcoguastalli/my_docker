@@ -2,14 +2,14 @@
 nextjs app on Docker with nginx (run manually the nginx)
 
 ### First time next-app next.js
-cd ~/my_docker/nextjs/src/v3
+cd ./nextjs/src/v3
 yarn create next-app
 ### build next-app
-cd ~/my_docker/nextjs/src/v3/nextjs-alpine
+cd ./nextjs/src/v3/nextjs-alpine
 npm run dev
 
 ### build
-cd ~/my_docker/nextjs/src/v3
+cd ./nextjs/src/v3
 docker build --no-cache -t nextjs:v3 .
 
 ### run

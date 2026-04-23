@@ -2,7 +2,7 @@
 http-echo under minikube
 
 ### build
-cd ~/my_docker/http-echo/src/v1
+cd ./http-echo/src/v1
 kubectl create -f minikube-http-echo.yaml
 kubectl delete -f minikube-http-echo.yaml
 

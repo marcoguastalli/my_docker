@@ -6,7 +6,7 @@ https://github.com/pablokbs/peladonerd/tree/master/kubernetes/35
 https://raw.githubusercontent.com/Kurento/Kubernetes/master/nginx-deployment-service.yaml
 
 ### build
-cd ~/my_docker/nginx/src/v10
+cd ./nginx/src/v10
 kubectl create -f minikube-nginx.yaml
 kubectl get deployments
 

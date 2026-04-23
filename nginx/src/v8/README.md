@@ -2,7 +2,7 @@
 nginx under debian 10 buster http only marco27.net
 
 ### build
-cd ~/my_docker/nginx/src/v8
+cd ./nginx/src/v8
 docker build --no-cache -t nginx-buster:v3 .
 
 ### run

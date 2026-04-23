@@ -2,7 +2,7 @@
 PostgreSQL and PgAdmin in a minikube cluster
 
 ## deploy
-cd ~/my_docker/postgres/src/v2_k8s
+cd ./postgres/src/v2_k8s
 scp ~/my_docker/postgres/src/v2_k8s/*.yaml doraemon@doraemon:/home/doraemon/my_pods/
 
 kubectl apply -f 001a-postgres-deployment.yaml --namespace ingress-nginx

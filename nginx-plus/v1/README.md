@@ -5,7 +5,7 @@ nginx under Debian 10 buster
 https://gist.github.com/nginx-gists/36e97fc87efb5cf0039978c8e41a34b5
 
 ### build
-cd ~/my_docker/nginx-plus/src/v1
+cd ./nginx-plus/src/v1
 docker build --no-cache -t nginx-plus:v1 .
 
 ### run

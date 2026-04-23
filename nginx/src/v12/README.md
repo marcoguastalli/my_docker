@@ -5,7 +5,7 @@ nginx http alpine with custom default.conf and 404 page
 https://www.docker.com/blog/how-to-use-the-official-nginx-docker-image/
 
 ### build
-cd ~/my_docker/nginx/src/v12
+cd ./nginx/src/v12
 docker build --no-cache -t nginx:v12 .
 
 ### run

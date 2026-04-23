@@ -2,7 +2,7 @@
 nginx under Debian 10 buster
 
 ## create .htaccess file
-cd ~/my_docker/nginx-proxy/v1/nginx
+cd ./nginx-proxy/v1/nginx
 htpasswd -c .htpasswd minikube
 
 ## get certificates
@@ -10,7 +10,7 @@ cat .minikube/profiles/minikube/client.crt
 cat .minikube/profiles/minikube/client.key
 
 ### build
-cd ~/my_docker/nginx-proxy/v1/
+cd ./nginx-proxy/v1/
 docker build --no-cache -t nginx-proxy:v1 .
 
 ### run

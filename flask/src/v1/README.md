@@ -2,7 +2,7 @@
 Run a container with tiangolo/meinheld-gunicorn:python3.8 and Flask from Dockerfile
 
 ### build
-cd ~/my_docker/flask/src/v1
+cd ./flask/src/v1
 docker build -t flask:v1 .
 
 ### run

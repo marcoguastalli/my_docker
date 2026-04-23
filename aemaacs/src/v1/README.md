@@ -2,7 +2,7 @@
 AEMaaCS Stack with author, publish and dispatcher
 
 ### build
-- `cd ~/my_docker/aemaacs/src/v1`
+- `cd ./aemaacs/src/v1`
 - `docker-compose up -d`
 
 ### logs

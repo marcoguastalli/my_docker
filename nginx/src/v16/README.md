@@ -2,7 +2,7 @@
 nginx http alpine with node.js (/app) running with pm2
 
 ### build
-cd ~/my_docker/nginx/src/v16
+cd ./nginx/src/v16
 docker build --no-cache -t nginx:v16 .
 
 ### run

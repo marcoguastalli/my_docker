@@ -14,7 +14,7 @@ https://github.com/jverhoelen/node-express-typescript-boilerplate
 https://peteranderson.me/articles/dependency-injection-with-nodejs-expressjs-and-typescript
 
 ### build
-cd ~/my_docker/app-bookmarks
+cd ./app-bookmarks
 docker-compose up -d
 ##### rebuild the image with a Dockerfile
 docker-compose up -d --build
@@ -25,14 +25,14 @@ docker-compose stop
 docker container restart app-bookmarks-nodejs
 
 ##### build frontend (webpack)
-cd ~/my_docker/app-bookmarks/html/bookmarks.marco27.net
+cd ./app-bookmarks/html/bookmarks.marco27.net
 npm install
   npm outdated
   npx npm-check-updates -u
 npm run build
 
 ##### build frontend (node-server-express)
-cd ~/my_docker/app-bookmarks/nodejs
+cd ./app-bookmarks/nodejs
 rm -rf node_modules
 rm -rf ~/my_docker/app-bookmarks/nodejs/node_modules
 npm install
@@ -44,7 +44,7 @@ npm run start
 ###### run unit tests (*Test.ts)
 npm run test:unit
 ###### run integration tests (*Spec.ts)
-cd ~/my_docker/app-bookmarks/nodejs
+cd ./app-bookmarks/nodejs
 npm run test:integration
 
 ### prettier code formatter

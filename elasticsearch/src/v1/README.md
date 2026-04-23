@@ -2,7 +2,7 @@
 Run a container with Elasticsearch Server and Kibana
 
 ### initial setup
-- `cd ~/my_docker/elasticsearch/src/v1`
+- `cd ./elasticsearch/src/v1`
 - `python3 index-folder.py`
 
 ##### create an index
@@ -20,7 +20,7 @@ curl -X POST http://localhost:9200/_bulk?pretty \
 '
 
 ### run
-- `cd ~/my_docker/elasticsearch/src/v1`
+- `cd ./elasticsearch/src/v1`
 - `docker-compose up`
 - `docker-compose up -d`
 - `docker-compose stop`

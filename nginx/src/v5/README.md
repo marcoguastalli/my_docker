@@ -8,7 +8,7 @@ https://hub.docker.com/u/letsencrypt
 https://hub.docker.com/r/jrcs/letsencrypt-nginx-proxy-companion
 
 ### build
-cd ~/my_docker/nginx/src/v5
+cd ./nginx/src/v5
 docker-compose up -d
 
 ### run

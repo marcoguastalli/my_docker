@@ -2,7 +2,7 @@
 nodejs with express hello world
 
 ### build
-cd ~/my_docker/nodejs/src/v1
+cd ./nodejs/src/v1
 docker build -t nodejs:v1 .
 
 ### run

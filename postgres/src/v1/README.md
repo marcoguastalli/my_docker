@@ -2,7 +2,7 @@
 PostgreSQL and PgAdmin in a docker container
 
 ### Build
-cd ~/my_docker/postgres/src/v1
+cd ./postgres/src/v1
 chmod -R 700 ./pgadmin-data
 chmod -R 700 ./postgres-data
 docker-compose up -d

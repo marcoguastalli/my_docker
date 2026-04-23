@@ -2,7 +2,7 @@
 MariaDB with phpmyadmin
 
 ### build
-cd ~/my_docker/mariadb/src/v1
+cd ./mariadb/src/v1
 docker-compose up -d
 
 ### run

@@ -2,7 +2,7 @@
 nginx proxy with the http server that redirect to https
 
 ### build
-cd ~/my_docker/nginx-proxy/v2
+cd ./nginx-proxy/v2
 docker build --no-cache -t nginx-proxy:v2 .
 
 ### run

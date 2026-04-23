@@ -2,7 +2,7 @@
 nodejs with webpack
 
 ### build
-cd ~/my_docker/nodejs/src/v3
+cd ./nodejs/src/v3
 docker build -t nodejs:v3 .
 
 ### run

@@ -1,0 +1,13 @@
+services:
+  localstack:
+    image: localstack/localstack
+    ports:
+      - "4566:4566"      # LocalStack gateway
+      - "4510-4559:4510-4559"  # service port range
+    environment:
+      # iam is needed by setup-localstack.sh; cloudfront only works with the Pro image
+      - SERVICES=cloudfront,lambda,s3,iam
+      - DEBUG=1
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./localstack-data:/var/lib/localstack"

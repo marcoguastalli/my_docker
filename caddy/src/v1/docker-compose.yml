@@ -1,0 +1,50 @@
+services:
+  nginx:
+    image: nginx:1.26.3-alpine
+    # platform: linux/amd64   # Uncomment on x64 production
+    platform: linux/arm64     # Use on Mac M1/M2
+    container_name: nginx
+    networks:
+      - webnet
+    ports:
+      - "81:81"   # Uncomment only for local testing; keep disabled in production
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      # Use default named volume for production
+      #- nginx-html:/usr/share/nginx/html
+      # Use local dev folder on Mac
+      - ~/opt/www:/usr/share/nginx/html:cached
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:81/ || exit 1"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+
+  caddy:
+    image: caddy:2.11.4-alpine
+    # platform: linux/amd64   # Uncomment on x64 production
+    platform: linux/arm64     # Use on Mac M1/M2
+    container_name: caddy
+    networks:
+      - webnet
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data        # Certificates, keys
+      - caddy-config:/config    # Caddy config
+    depends_on:
+      nginx:
+        condition: service_healthy
+    restart: unless-stopped
+    command: ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]
+
+networks:
+  webnet:
+    driver: bridge
+
+volumes:
+  caddy-data:
+  caddy-config:

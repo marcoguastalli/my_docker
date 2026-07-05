@@ -1,0 +1,13 @@
+{
+  "Records": [{
+    "cf": {
+      "request": {
+        "uri": "/index.html",
+        "method": "GET",
+        "headers": {
+          "host": [{ "key": "Host", "value": "example.com" }]
+        }
+      }
+    }
+  }]
+}

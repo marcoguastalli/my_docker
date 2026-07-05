@@ -13,4 +13,5 @@
 - `docker-compose up`
 
 ### play
+- curl -k https://localhost/health
 - http://localhost

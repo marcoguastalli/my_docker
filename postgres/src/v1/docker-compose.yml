@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: postgres:17.2-alpine3.21
+    image: postgres:18.4-alpine3.24
     container_name: marco27-web-postgres
     ports:
       - "5432:5432"
@@ -15,7 +15,7 @@ services:
       - postgres-pgadmin
 
   pgadmin:
-    image: dpage/pgadmin4:8.14.0
+    image: dpage/pgadmin4:9.16
     container_name: marco27-web-pgadmin
     restart: unless-stopped
     volumes:

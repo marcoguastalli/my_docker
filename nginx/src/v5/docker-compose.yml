@@ -32,7 +32,7 @@ services:
       - html:/usr/share/nginx/html
 
   marco27net:
-    image: nginx:stable-alpine
+    image: nginx:1.31.2-alpine
     container_name: marco27net
     restart: always
     environment:
@@ -46,7 +46,7 @@ services:
       - ./html/marco27:/usr/share/nginx/html:ro
 
   m27js_net:
-    image: nginx:stable-alpine
+    image: nginx:1.31.2-alpine
     container_name: m27js_net
     restart: always
     environment:

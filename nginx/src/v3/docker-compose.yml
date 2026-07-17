@@ -2,7 +2,7 @@
 services:
 
   nginx:
-    image: nginx:stable-alpine
+    image: nginx:1.31.2-alpine
     restart: always
     environment:
       - VIRTUAL_HOST=marco27.net,m27js.net

@@ -9,7 +9,7 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
 
   marco27net:
-    image: nginx:stable-alpine
+    image: nginx:1.31.2-alpine
     environment:
       - VIRTUAL_HOST=marco27.net
     volumes:
@@ -17,7 +17,7 @@ services:
       - ./html/marco27:/usr/share/nginx/html:ro
 
   m27js_net:
-    image: nginx:stable-alpine
+    image: nginx:1.31.2-alpine
     environment:
       - VIRTUAL_HOST=m27js.net
     volumes:

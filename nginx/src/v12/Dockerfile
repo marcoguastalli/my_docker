@@ -1,4 +1,4 @@
-FROM nginx:stable-alpine
+FROM nginx:1.31.2-alpine
 # upgrade
 RUN apk update; apk upgrade;
 # copy

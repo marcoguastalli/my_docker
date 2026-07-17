@@ -1,4 +1,4 @@
-FROM nginx:stable-alpine
+FROM nginx:1.31.2-alpine
 # upgrade and install node and pm2
 RUN apk update; apk upgrade;
 RUN apk add nodejs npm

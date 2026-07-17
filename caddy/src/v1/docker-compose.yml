@@ -1,6 +1,6 @@
 services:
   nginx:
-    image: nginx:1.26.3-alpine
+    image: nginx:1.31.2-alpine
     # platform: linux/amd64   # Uncomment on x64 production
     platform: linux/arm64     # Use on Mac M1/M2
     container_name: nginx

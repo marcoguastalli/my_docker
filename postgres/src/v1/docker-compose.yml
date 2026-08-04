@@ -6,7 +6,7 @@ services:
       - "5432:5432"
     restart: unless-stopped
     volumes:
-      - ~/opt/docker/postgres/postgres-data:/var/lib/postgresql/data:rw
+      - ~/opt/docker/postgres/postgres-data:/var/lib/postgresql:rw
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-admin123four}

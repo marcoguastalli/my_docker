@@ -6,11 +6,10 @@ services:
       - "5432:5432"
     restart: unless-stopped
     volumes:
-      - ./postgres-data:/var/lib/postgresql/data:rw
+      - ~/opt/docker/postgres/postgres-data:/var/lib/postgresql/data:rw
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-admin123four}
-      PGDATA: /data/postgres
     networks:
       - postgres-pgadmin
 
@@ -19,7 +18,7 @@ services:
     container_name: marco27-web-pgadmin
     restart: unless-stopped
     volumes:
-      - ./pgadmin-data:/root/.pgadmin:rw
+      - ~/opt/docker/postgres/pgadmin-data:/root/.pgadmin:rw
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin123four}
@@ -39,10 +38,6 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     networks:
       - postgres-pgadmin
-
-volumes:
-  postgres-data:
-  pgadmin-data:
 
 networks:
   postgres-pgadmin:

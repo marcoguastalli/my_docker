@@ -11,5 +11,3 @@ lib/*
 target/*
 build/*
 .claude
-postgres-data
-pgadmin-data

@@ -33,8 +33,8 @@ services:
       - "443:443"
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - caddy-data:/data        # Certificates, keys
-      - caddy-config:/config    # Caddy config
+      - ~/opt/docker/caddy/caddy-data:/data        # Certificates, keys
+      - ~/opt/docker/caddy/caddy-config:/config    # Caddy config
     depends_on:
       nginx:
         condition: service_healthy
@@ -44,7 +44,3 @@ services:
 networks:
   webnet:
     driver: bridge
-
-volumes:
-  caddy-data:
-  caddy-config:

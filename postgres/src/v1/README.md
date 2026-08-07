@@ -1,6 +1,18 @@
 # v1
 PostgreSQL and PgAdmin in a docker container
 
+This is the **shared Postgres/pgAdmin instance** for this workspace: app repos
+(`app-daybook`, `app-bookmarks`, …) that each ship their own self-contained
+`postgres`/`pgadmin` services can *optionally* skip starting those and point
+at this instance instead, via a `docker-compose.shared-db.yml` override file
+in their own repo. See each app's README for its "Shared Postgres mode"
+section.
+
+Other containers reach this instance on the `shared-postgres-net` Docker
+network (explicit, stable name — not the default project-derived one) at
+hostname `postgres-shared` (a network alias, independent of this container's
+own name).
+
 ### Build
 cd ./postgres/src/v1
 mkdir -p ./postgres-data ./pgadmin-data
@@ -38,4 +50,11 @@ admin123four
 * **URL:** `http://localhost:5050`
 * **Username:** pgadmin4@pgadmin.org (as a default)
 * **Password:** admin123four (as a default)
+
+##### Ports
+Both `5432` (postgres) and `5050` (pgadmin) are published bound to `0.0.0.0`
+— reachable from your LAN/Tailscale as soon as your host firewall allows
+incoming connections to Docker. Since this instance is shared across
+multiple app repos (see top of this file) and uses the default dev
+credentials above, don't forward either port beyond your LAN.
 

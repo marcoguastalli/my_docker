@@ -11,6 +11,7 @@ lib/*
 target/*
 build/*
 .claude
+.env
 postgres-data
 pgadmin-data
 mongodb-data

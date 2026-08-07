@@ -1,12 +1,12 @@
 services:
   postgres:
     image: postgres:18.4-alpine3.24
-    container_name: marco27-web-postgres
+    container_name: postgres
     ports:
       - "5432:5432"
     restart: unless-stopped
     volumes:
-      - ~/opt/docker/postgres/postgres-data:/var/lib/postgresql:rw
+      - ./postgres-data:/var/lib/postgresql:rw
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-admin123four}
@@ -14,11 +14,11 @@ services:
       - postgres-pgadmin
 
   pgadmin:
-    image: dpage/pgadmin4:9.16
-    container_name: marco27-web-pgadmin
+    image: dpage/pgadmin4:9.17
+    container_name: pgadmin
     restart: unless-stopped
     volumes:
-      - ~/opt/docker/postgres/pgadmin-data:/root/.pgadmin:rw
+      - ./pgadmin-data:/root/.pgadmin:rw
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin123four}
@@ -30,7 +30,7 @@ services:
 
   nginx:
     image: nginx:1.31.2-alpine
-    container_name: nginx-proxy
+    container_name: nginx
     restart: unless-stopped
     ports:
       - "80:80"

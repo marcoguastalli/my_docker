@@ -25,7 +25,7 @@ services:
     restart: always
     command: "mysqld --init-file /data/application/init.sql"
     volumes:
-      - ~/opt/docker/mysql/mysql-data:/var/lib/mysql
+      - mysql-data:/var/lib/mysql
       - ./sql/init.sql:/data/application/init.sql
     environment:
       MYSQL_DATABASE: db
@@ -50,6 +50,9 @@ services:
       - ddbb-network
     depends_on:
       - mysql
+
+volumes:
+  mysql-data:
 
 networks:
   ddbb-network:

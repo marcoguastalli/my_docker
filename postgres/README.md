@@ -5,8 +5,3 @@ Run a container with PostgreSQL
 https://hub.docker.com/_/postgres
 https://hub.docker.com/r/dpage/pgadmin4
 https://github.com/khezen/compose-postgres
-
-
-### volumes
-By default the volumes are created at:
-- ~/opt/docker/postgres

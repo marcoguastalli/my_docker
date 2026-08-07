@@ -25,7 +25,7 @@ services:
     restart: always
     command: "mysqld --init-file /data/application/init.sql"
     volumes:
-      - ~/opt/docker/mariadb/mariadb-data:/var/lib/mysql
+      - mariadb-data:/var/lib/mysql
       - ./sql/init.sql:/data/application/init.sql
     environment:
       MYSQL_DATABASE: db
@@ -49,6 +49,9 @@ services:
       - ddbb-network
     depends_on:
       - mariadb
+
+volumes:
+  mariadb-data:
 
 networks:
   ddbb-network:

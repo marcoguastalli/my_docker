@@ -6,7 +6,7 @@ services:
     ports:
       - "4502:4502"
     volumes:
-      - ~/opt/docker/aemaacs/author-crx-quickstart:/opt/aem/crx-quickstart
+      - ./author/crx-quickstart:/opt/aem/crx-quickstart
     environment:
       - AEM_RUNMODE=author,local
       - ADMIN_PASSWORD=${AEM_PASSWORD}
@@ -19,7 +19,7 @@ services:
     ports:
       - "4503:4503"
     volumes:
-      - ~/opt/docker/aemaacs/publish-crx-quickstart:/opt/aem/crx-quickstart
+      - ./publish/crx-quickstart:/opt/aem/crx-quickstart
     environment:
       - AEM_RUNMODE=publish,local
       - ADMIN_PASSWORD=${AEM_PASSWORD}

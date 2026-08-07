@@ -11,3 +11,12 @@ lib/*
 target/*
 build/*
 .claude
+postgres-data
+pgadmin-data
+mongodb-data
+solr-data
+elastic-data
+crx-quickstart
+jenkins-volume/data
+rabbitmq/data
+rabbitmq/logs

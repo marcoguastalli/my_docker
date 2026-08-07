@@ -46,3 +46,11 @@ Each top-level directory follows the same layout:
 - Alpine-based images are preferred (e.g. `nginx:1.26.3-alpine`); Dockerfiles start with `apk update && apk upgrade && rm -rf /var/cache/apk/*`.
 - HTTPS experiments use self-signed certs generated with `openssl req -x509` (see `nginx/README.md` for the exact command); certs are committed under the version's `certs/` directory.
 - Some experiments assume the local hostname `marco27.net` (mapped in `/etc/hosts`).
+
+## Stateful volumes
+
+This is a public repo — never hardcode a personal host path (e.g. `~/opt/docker/...`) as a bind-mount source in a committed `docker-compose.yml`; it breaks `docker-compose up` for anyone else who clones the repo. Use whichever of these the experiment already uses:
+- **Named Docker volumes** (`caddy`, `mariadb`, `mysql`) — zero host setup, Docker auto-creates them.
+- **Relative bind mounts** scoped to the version directory (`./*-data`, e.g. `elasticsearch`, `jenkins`, `aemaacs`, `marco27-web`) — data sits next to the compose file; add the directory name to `.gitignore`.
+
+`postgres/src/v1` is the exception: it's also the workspace's shared Postgres/pgAdmin instance that other app repos (`app-daybook`, `app-bookmarks`, …) can opt into over the `shared-postgres-net` Docker network. See `postgres/README.md` and `postgres/src/v1/README.md` before renaming its network name or hostname alias — other repos' `docker-compose.shared-db.yml` overrides depend on them.

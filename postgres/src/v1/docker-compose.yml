@@ -1,22 +1,25 @@
 services:
   postgres:
     image: postgres:18.4-alpine3.24
-    container_name: marco27-web-postgres
+    container_name: postgres
     ports:
       - "5432:5432"
     restart: unless-stopped
     volumes:
-      - ./postgres-data:/var/lib/postgresql/data:rw
+      - ./postgres-data:/var/lib/postgresql:rw
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-admin123four}
-      PGDATA: /data/postgres
     networks:
-      - postgres-pgadmin
+      postgres-pgadmin:
+        # Stable hostname other repos' shared-db override files connect to,
+        # independent of this container's own name.
+        aliases:
+          - postgres-shared
 
   pgadmin:
-    image: dpage/pgadmin4:9.16
-    container_name: marco27-web-pgadmin
+    image: dpage/pgadmin4:9.17
+    container_name: pgadmin
     restart: unless-stopped
     volumes:
       - ./pgadmin-data:/root/.pgadmin:rw
@@ -29,20 +32,9 @@ services:
     networks:
       - postgres-pgadmin
 
-  nginx:
-    image: nginx:1.31.2-alpine
-    container_name: nginx-proxy
-    restart: unless-stopped
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-    networks:
-      - postgres-pgadmin
-
-volumes:
-  postgres-data:
-  pgadmin-data:
-
 networks:
   postgres-pgadmin:
+    # Explicit, stable name: other repos' docker-compose.shared-db.yml files
+    # reference this network as `external: true`, so it can't be left to the
+    # default project-directory-derived name.
+    name: shared-postgres-net

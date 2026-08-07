@@ -228,14 +228,6 @@ services:
     networks:
       - rabbitmq
 
-volumes:
-  www:
-  mariadb-data:
-  mongodb-data:
-  postgres-data:
-  pgadmin-data:
-  solr-data:
-
 networks:
   nodejs:
   nginx-php:

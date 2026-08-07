@@ -20,6 +20,21 @@ chmod -R 700 ./pgadmin-data
 chmod -R 700 ./postgres-data
 docker-compose up -d
 
+Data defaults to the relative `./postgres-data` / `./pgadmin-data` above, so
+a plain clone + `docker-compose up` always works. To persist somewhere else
+on this machine instead (e.g. alongside other projects' data, keeping it
+outside the repo entirely), create a local `.env` here — it's gitignored,
+so this is per-machine only:
+```
+POSTGRES_DATA_DIR=/absolute/path/to/postgres-data
+PGADMIN_DATA_DIR=/absolute/path/to/pgadmin-data
+```
+Use an **absolute path, not `~`** — Compose doesn't reliably tilde-expand
+env var values. On this machine it's set to
+`~/opt/docker/postgres/{postgres-data,pgadmin-data}`, consolidating this
+shared instance's data under the same host directory app-daybook and
+app-bookmarks use for their own standalone-mode data.
+
 ### Run
 docker-compose start
 docker-compose stop
@@ -37,6 +52,8 @@ admin123four
 ##### Environment Variables
 * `POSTGRES_USER` the default value is **postgres**
 * `POSTGRES_PASSWORD` the default value is **admin123four**
+* `POSTGRES_DATA_DIR` the default value is **./postgres-data** (relative to this folder)
+* `PGADMIN_DATA_DIR` the default value is **./pgadmin-data** (relative to this folder)
 * `PGADMIN_PORT` the default value is **5050**
 * `PGADMIN_DEFAULT_EMAIL` the default value is **pgadmin4@pgadmin.org**
 * `PGADMIN_DEFAULT_PASSWORD` the default value is **admin123four**
